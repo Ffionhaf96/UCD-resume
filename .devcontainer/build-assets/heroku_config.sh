@@ -19,7 +19,6 @@ if [[ -z "${HEROKU_API_KEY}" ]]; then
    fi
    echo export HEROKU_API_KEY=${apikey} >> ~/.bashrc
    echo Added the export. Refreshing the terminal.
-   . ~/.bashrc > /dev/null
    echo Done!
 else
    echo API key is already set.
@@ -27,12 +26,9 @@ else
    echo To reset the API key please input "'reset'":
    read reset_trigger
    if [[ ${reset_trigger} == reset ]]; then
-      unset HEROKU_API_KEY
-      unset reset_trigger
       echo
       echo API key removed!
    else
-      unset reset_trigger
       echo API key unchanged.
    fi
    echo
